@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.scout.apps</groupId>
+    <artifactId>helloscout-root</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>helloscout</artifactId>
+  <packaging>pom</packaging>
+  <name>My Application</name>
+
+  <properties>
+    <org.eclipse.scout.apps.helloscout.version>${project.version}</org.eclipse.scout.apps.helloscout.version>
+    <jdk.source.version>17</jdk.source.version>
+    <org.eclipse.scout.rt.version>23.1.8</org.eclipse.scout.rt.version>
+    <master_npm_release_dependency_mapping>--mapping.0.regex=@eclipse-scout --mapping.0.version=${org.eclipse.scout.rt.version}</master_npm_release_dependency_mapping>
+  </properties>
+
+  <modules>
+    <module>../helloscout.shared</module>
+    <module>../helloscout.server</module>
+    <module>../helloscout.client</module>
+    <module>../helloscout.server.app.war</module>
+    <module>../helloscout.server.app.dev</module>
+    <module>../helloscout.ui.html</module>
+    <module>../helloscout.ui.html.app.war</module>
+    <module>../helloscout.ui.html.app.dev</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Scout Dependencies -->
+      <dependency>
+        <groupId>org.eclipse.scout.rt</groupId>
+        <artifactId>org.eclipse.scout.rt</artifactId>
+        <version>${org.eclipse.scout.rt.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Application Dependencies -->
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>helloscout.client</artifactId>
+        <version>${org.eclipse.scout.apps.helloscout.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>helloscout.shared</artifactId>
+        <version>${org.eclipse.scout.apps.helloscout.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>helloscout.server</artifactId>
+        <version>${org.eclipse.scout.apps.helloscout.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>helloscout.ui.html</artifactId>
+        <version>${org.eclipse.scout.apps.helloscout.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
